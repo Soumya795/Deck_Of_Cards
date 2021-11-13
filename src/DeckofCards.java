@@ -22,12 +22,23 @@ public class DeckofCards {
         System.out.println("Enter Number of Players");
         Scanner s = new Scanner(System.in);
         int number = s.nextInt();
-        if (number >= 2 && number <= 4) {
+        if (number > 2 && number <= 4) {
             System.out.println("Lets start the Game");
+            System.out.println("Enter Player's name");
+            for (int i = 0; i <= number; i++) {
+                String fn = s.nextLine();
+                for (int j = 0; j < number; j++) {
+                    System.out.println(fn);
+                    break;
+                }
+            }
         } else {
-            System.out.println("Game can be played by 2 , 3 and 4 players only ");
+            System.out.println("Game can be played by 3 and 4 players only ");
             System.out.println("Please enter again");
+            addPlayer();
+
         }
+
     }
 
     public static void main(String[] args) {
