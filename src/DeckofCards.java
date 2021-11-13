@@ -1,11 +1,16 @@
 import java.util.Scanner;
-
+import java.util.List;
+import java.util.ArrayList;
 public class DeckofCards {
+    static Scanner s = new Scanner(System.in);
+    private static int number;
+
     public static void initGame() {
         int card = 0;
         String[] suit = {"Club", "Diamond", "Spades", "Hearts"};
         String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
         String[][] deck = new String[suit.length][rank.length];
+
         for (int i = 0; i < suit.length; i++) {
             for (int j = 0; j < rank.length; j++) {
                 deck[i][j] = suit[i] + " " + rank[j];
@@ -18,9 +23,7 @@ public class DeckofCards {
         System.out.println("The total number of cards are " + card);
     }
 
-    public static void addPlayer() {
-        System.out.println("Enter Number of Players");
-        Scanner s = new Scanner(System.in);
+    private static void addPlayer() {
         int number = s.nextInt();
         if (number > 2 && number <= 4) {
             System.out.println("Lets start the Game");
@@ -38,13 +41,23 @@ public class DeckofCards {
             addPlayer();
 
         }
+    }
 
+    public static void orderPlayerTurn(int num) {
+        System.out.println("Enter players order");
+        for (int i = 1; i <= num; i++) {
+            int turn = s.nextInt();
+            System.out.println("Player"+turn+"goes"+i);;
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcome To The Deck of Card Problem");
         initGame();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of players");
+        int num = sc.nextInt();
         addPlayer();
+        orderPlayerTurn(num);
 
     }
 }
