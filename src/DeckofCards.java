@@ -1,8 +1,7 @@
 import java.util.Scanner;
-import java.util.Random;
+
 public class DeckofCards {
     static Scanner s = new Scanner(System.in);
-    private static int number;
 
     public static void initGame() {
         int card = 0;
@@ -50,26 +49,7 @@ public class DeckofCards {
             System.out.println("Player"+turn+"goes"+i);;
         }
     }
-    public static void shuffleDeckOfCards() {
-        String[] suit = {"Club", "Diamond", "Spades", "Hearts"};
-        String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 
-        String[][] deck = new String[suit.length][rank.length];
-
-        Random rand = new Random();
-        for (int i = 0; i < deck.length; i++) {
-            String[] tempArray = deck[i];
-            for (int j = 0; j < tempArray.length; j++) {
-                // Random for remaining positions.
-                int r = j + rand.nextInt(tempArray.length - j);
-                // swapping the elements
-                String temp = tempArray[r];
-                tempArray[r] = tempArray[j];
-                tempArray[j] = temp;
-            }
-            deck[i] = tempArray;
-        }
-    }
 
     public static void main(String[] args) {
         initGame();
@@ -78,7 +58,7 @@ public class DeckofCards {
         int num = sc.nextInt();
         addPlayer();
         orderPlayerTurn(num);
-        shuffleDeckOfCards();
+
 
     }
 }
